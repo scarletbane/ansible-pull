@@ -3,6 +3,14 @@
   become: true
 
   tasks:
-  - name: Install htop
+  - name: Update packages
     apt:
-      name: htop
+      upgrade: yes
+      update_cache: yes
+
+  - name: Install packages
+    apt:
+      name:
+        - htop
+        - mc
+        - tmux
