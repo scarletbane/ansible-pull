@@ -3,14 +3,15 @@
   become: true
 
   tasks:
-  - name: Update packages
+  - name: Update cache
     apt:
-      upgrade: yes
       update_cache: yes
 
-  - name: Install packages
+  - name: Update packages
     apt:
-      name:
-        - htop
-        - mc
-        - tmux
+      name: "*"
+      state: latest
+
+  - name: Autoremove
+    apt:
+      autoremove: yes
