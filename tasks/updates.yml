@@ -1,0 +1,12 @@
+- name: Update cache
+  apt:
+    update_cache: yes
+
+- name: Update packages
+  apt:
+    name: "*"
+    state: latest
+
+- name: Autoremove
+  apt:
+    autoremove: yes

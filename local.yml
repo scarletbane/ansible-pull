@@ -2,16 +2,8 @@
   connection: local
   become: true
 
+  pre_tasks:
+    - include: tasks/updates.yml
+
   tasks:
-  - name: Update cache
-    apt:
-      update_cache: yes
-
-  - name: Update packages
-    apt:
-      name: "*"
-      state: latest
-
-  - name: Autoremove
-    apt:
-      autoremove: yes
+    - include: tasks/packages.yml
